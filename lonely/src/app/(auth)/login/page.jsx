@@ -1,7 +1,10 @@
 "use client"
 
-const Login = () =>{
+import { useSelector } from "react-redux";
 
+const Login = () =>{
+    const user = useSelector(store=>store.user);
+    console.log(user)
     return <div >
         <h1 className="text-primary-main">Login Page</h1>
         <div className="w-500">
