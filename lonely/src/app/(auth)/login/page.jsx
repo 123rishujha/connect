@@ -1,6 +1,7 @@
-
+"use client"
 
 const Login = () =>{
+
     return <div >
         <h1 className="text-primary-main">Login Page</h1>
         <div className="w-500">
