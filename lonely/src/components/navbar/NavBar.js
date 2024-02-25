@@ -24,3 +24,5 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+// https://dev.to/franklin030601/building-a-multi-language-app-with-react-js-2och
