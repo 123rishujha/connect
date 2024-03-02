@@ -1,5 +1,14 @@
 {
-  "Index": {
-    "title": "Hello world!"
-  }
+  "IndexPage": {
+    "title": "Internationalization practice",
+    "description": "Welcome to Internationalization practice Session"
+  },
+  "NotFoundPage": {
+    "title": "Oops Page Not Found",
+    "description": "It seems like you entered wrong url"
+  },
+  "Navigation": {
+    "home": "Home"
+  },
+  "Footer": { "copyright": "@ 2024 My App. All rights reserved" }
 }
