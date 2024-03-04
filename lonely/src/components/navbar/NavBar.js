@@ -1,15 +1,21 @@
-import { LANGUAGES } from "@/constants/LangeConst";
+// import { LANGUAGES } from "@/constants/LangeConst";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+import ChangeLange from "./ChangeLang";
 
 const NavBar = () => {
+  const t = useTranslations("Navigation");
+
   return (
     <nav className="flex justify-between">
       <div className="flex justify-between " style={{ width: "70%" }}>
-        <p>Home</p>
-        <p>About</p>
-        <p>contact</p>
+        <Link href={"/"}>{t("home")}</Link>
+        {/* <p>About</p> */}
+        {/* <p>contact</p> */}
       </div>
       <div>
-        <select className="rounded p-1">
+        <ChangeLange />
+        {/* <select className="rounded p-1">
           {LANGUAGES.map(({ code, label }) => {
             return (
               <option key={code} value={code}>
@@ -17,7 +23,7 @@ const NavBar = () => {
               </option>
             );
           })}
-        </select>
+        </select> */}
       </div>
     </nav>
   );
