@@ -1,14 +1,18 @@
 "use client"
 
 import { useRef } from "react";
-import { CtrlInput } from "@/components/common/CtrlInput";
-import { MyButton } from "@/components/common/MyButton";
+import { CtrlInput } from "../../_components/common/CtrlInput";
+import { MyButton } from "../../_components/common/MyButton";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useSelector } from "react-redux";
+import { useTranslations } from "next-intl";
+import { ValidationType } from "../../_helperFunc.js/Validation";
 
 
 const Login = () =>{
+    const t = useTranslations()
+
     const user = useSelector(store=>store.user);
     const inputRef = useRef(null);
     console.log(user)
@@ -16,14 +20,16 @@ const Login = () =>{
     const inputProps = [
         {
             name:"userName",
-            placeholder: "User Name",
-            // label: "User Name",
+            placeholder: t("auth.form.userName"),
         },
         {
             name:"password",
-            placeholder: "Password",
+            placeholder: t("auth.form.password"),
         },
     ]
+
+    const validationSchema = Yup.string().required()
+    console.log("909 validationSchema",validationSchema)
 
     return <div >
         <h1 className="text-primary-main">Login Page</h1>
@@ -32,7 +38,8 @@ const Login = () =>{
             initialValues={{userName:"",password:"" }} 
             onSubmit={(values)=> console.log("909 submitted",values)} 
             validationSchema={Yup.object({
-                userName: Yup.string().required(),
+                // userName: Yup.string().required(),
+                userName: ValidationType("normal",{type:"normal",required: true, max: 4}),
                 password: Yup.string().min(6,'Minimun 6 character required').required(),
             })}
             >
