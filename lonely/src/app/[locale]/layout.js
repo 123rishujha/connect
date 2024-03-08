@@ -1,7 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ReduxWrapper from "@/redux/ReduxWrapper";
-import NavBar from "@/components/navbar/NavBar";
+// import NavBar from "@/components/navbar/NavBar";
+import NavBar from "./_components/navbar/NavBar";
+import { NextIntlClientProvider, useMessages } from "next-intl";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,13 +13,17 @@ export const metadata = {
 };
 
 export default function LocalRootLayout({ children, params }) {
+  const messages = useMessages();
+
   return (
     <html lang={params.locale}>
       <ReduxWrapper>
-        <body className={inter.className}>
-          <NavBar />
-          {children}
-        </body>
+        <NextIntlClientProvider locale={params.locale} messages={messages}>
+          <body className={inter.className}>
+            <NavBar />
+            {children}
+          </body>
+        </NextIntlClientProvider>
       </ReduxWrapper>
     </html>
   );

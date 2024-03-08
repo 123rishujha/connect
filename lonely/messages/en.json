@@ -10,5 +10,16 @@
   "Navigation": {
     "home": "Home"
   },
-  "Footer": { "copyright": "@ 2024 My App. All rights reserved" }
+  "Footer": { "copyright": "@ 2024 My App. All rights reserved" },
+  "auth": {
+    "form": {
+      "userName": "User Name",
+      "password": "Password"
+    }
+  },
+  "formErr": {
+    "reqErr": "Field can't be empty",
+    "notOnlySpc": "Can't contain only space.",
+    "maxErr": "Your input exceeds the maximum allowed character limit of"
+  }
 }
